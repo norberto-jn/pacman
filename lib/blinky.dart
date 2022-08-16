@@ -1,6 +1,6 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:pacman/blinky_sprite_sheet.dart';
 import 'package:pacman/main.dart';
+import 'package:pacman/sprites/enemys/blinky_sprite_sheet.dart';
 
 class Blinky extends SimpleEnemy with ObjectCollision {
   Blinky(Vector2 position)
@@ -21,22 +21,17 @@ class Blinky extends SimpleEnemy with ObjectCollision {
   @override
   void update(double dt) {
     seeAndMoveToPlayer(
-      closePlayer: (player) {
+      closePlayer: (Player player) {
         _executeAttack();
-        
       },
       radiusVision: tileSize * 100000,
       margin: 0,
     );
 
     seePlayer(
-
-      observed: (player) {
-        _executeAttack();
-      },
-
-      radiusVision: tileSize
-
+      observed: (Player player) {},
+      notObserved: () {},
+      radiusVision: tileSize * 10,
     );
 
     super.update(dt);
