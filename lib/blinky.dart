@@ -32,7 +32,7 @@ class Blinky extends SimpleEnemy with ObjectCollision {
       observed: (Player player) {},
       notObserved: () {},
       radiusVision: tileSize * 10,
-    );
+    );   
 
     super.update(dt);
   }
